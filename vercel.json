@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://uploadyai4977.pinet.com/$1",
+      "permanent": true
+    }
+  ]
+}
