@@ -1,43 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Pi App</title>
-    <!-- استدعاء مكتبة Pi SDK -->
-    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-  </head>
-  <body>
-    <h1>Pi Network App</h1>
-    <p>اختبار الدفع باستخدام Pi SDK</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Uploady AI</title>
 
-    <!-- زر الدفع -->
-    <button onclick="startPayment()">ادفع بالـ Pi</button>
+  <!-- Pi SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+  <script>
+    Pi.init({ version: "2.0" });
+  </script>
+</head>
 
-    <script>
-      // تهيئة الـ SDK
-      Pi.init({ version: "2.0", sandbox: true });
+<body>
+  <h2>Uploady AI</h2>
 
-      // دالة الدفع
-      function startPayment() {
-        Pi.createPayment({
-          amount: 1, // قيمة الدفع بالـ Pi
-          memo: "اختبار الدفع",
-          metadata: { orderId: "test123" },
-          onReadyForServerApproval: (paymentId) => {
-            console.log("جاهز للموافقة:", paymentId);
-          },
-          onReadyForServerCompletion: (paymentId, txid) => {
-            console.log("تم الدفع:", paymentId, txid);
-          },
-          onCancel: (paymentId) => {
-            console.log("تم الإلغاء:", paymentId);
-          },
-          onError: (error) => {
-            console.error("خطأ:", error);
-          }
-        });
-      }
-    </script>
-  </body>
+  <button onclick="login()">Login with Pi</button>
+
+  <script>
+    let currentUser = null;
+
+    function login() {
+      Pi.authenticate(
+        ["username", "payments"],
+        function (auth) {
+          currentUser = auth.user;
+          alert("Welcome " + auth.user.username);
+        },
+        function (error) {
+          console.error(error);
+        }
+      );
+    }
+  </script>
+</body>
 </html>
-<!-- تعديل بسيط لإعادة النشر -->
