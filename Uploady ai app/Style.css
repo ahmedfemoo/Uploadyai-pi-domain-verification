@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 32px;
+  background: #f7f7fb;
+  color: #222;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
+.actions button,
+.upload-section button {
+  margin: 8px;
+  padding: 10px 16px;
+  background: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.actions button:hover,
+.upload-section button:hover {
+  background: #4b3fd6;
+}
+
+.upload-section {
+  margin-top: 24px;
+}
