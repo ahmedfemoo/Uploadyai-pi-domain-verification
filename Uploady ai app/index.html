@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uploady Ai</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Uploady Ai</h1>
+
+  <!-- أزرار أساسية -->
+  <div class="actions">
+    <button onclick="login()">Login with Pi</button>
+    <button onclick="pay(1)">Pay 1 Pi</button>
+  </div>
+
+  <!-- قسم رفع الملفات (هنفعّله لاحقًا) -->
+  <div class="upload-section">
+    <h2>Upload File</h2>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadFile()">Upload</button>
+  </div>
+
+  <!-- تحميل سكربت Pi SDK الرسمي -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+
+  <!-- تعريف وتهيئة Pi SDK -->
+  <script>
+    // مهم: تعريف الكائن Pi بعد تحميل السكربت
+    const Pi = window.Pi;
+
+    // تهيئة الـ SDK — استخدم sandbox أثناء التطوير
+    Pi.init({ version: "2.0", sandbox: true });
+  </script>
+
+  <!-- سكربت المشروع -->
+  <script src="script.js"></script>
+</body>
+</html>
