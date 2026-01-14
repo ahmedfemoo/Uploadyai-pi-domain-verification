@@ -13,6 +13,21 @@
 <script>
   Pi.init({ version: "2.0", sandbox: true })
 </script>
+  <script>
+  function loginWithPi() {
+    Pi.authenticate(
+      ['username'],
+      function(auth) {
+        console.log('Authenticated:', auth);
+        alert("Welcome " + auth.user.username);
+      },
+      function(error) {
+        console.error(error);
+        alert("Auth failed");
+      }
+    );
+  }
+</script>
 </head>
 
 <body>
